@@ -69,12 +69,11 @@ def start(update, context):
     if CustomFilters.authorized_user(update) or CustomFilters.authorized_chat(update):
         start_string = f'''Hey! {uname},\n
 This bot can mirror all your links to Google Drive! and also can Upload them on Telegram if you want.
-Type /{BotCommands.HelpCommand} to get a list of available commands
 '''
         sendMarkup(start_string, context.bot, update, reply_markup)
     else:
         if BOT_PM:
-            message = sendMessage(f'Dear {uname},\n\nIf You Want To Use Me, You Have To Join @{CHANNEL_USERNAME}\n\n<b>NOTE:</b> All The Uploaded Links and Leeched Files By You Will Be Sent Here In Your Private Chat From Now.', context.bot, update)
+            message = sendMessage(f'Dear {uname},\n\nIf You Want To Use Me, You Have To Join @{CHANNEL_USERNAME}\n<b>NOTE:</b> All your Links/Leeched files Will Be Sent Here In Your Private Chat From Now!', context.bot, update)
             Thread(target=auto_delete_message, args=(context.bot, update.message, message)).start()
             return
         else:
