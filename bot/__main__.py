@@ -62,8 +62,7 @@ def stats(update, context):
 
 def start(update, context):
     buttons = ButtonMaker()
-    buttons.buildbutton("Updates Channel", "https://t.me/heliosmirror")
-    buttons.buildbutton("Support Group", "https://t.me/mirrorsociety")
+    buttons.buildbutton("Join for Updates and More 🔥", "https://t.me/jkxmirror")
     uname = f'<a href="tg://user?id={update.message.from_user.id}">{update.message.from_user.first_name}</a>'
     reply_markup = InlineKeyboardMarkup(buttons.build_menu(2))
     if CustomFilters.authorized_user(update) or CustomFilters.authorized_chat(update):
@@ -78,7 +77,7 @@ This bot can mirror all your links to Google Drive! and also can Upload them on 
             return
         else:
             message = sendMarkup(
-                f'Dear {uname},\n\nIf You Want To Use Me, You Have To Join @{CHANNEL_USERNAME}\n\n',
+                f'Dear {uname},\n\nIf You Want To Use Me, You Have To Join @jkxmirror\n\n',
                 context.bot, update, reply_markup)
             Thread(target=auto_delete_message, args=(context.bot, update.message, message)).start()
             return
@@ -209,12 +208,12 @@ leech_help_string_telegraph = f'''<br>
 '''
 if LEECH_ENABLED:
     help = telegraph.create_page(
-        title='Helios-Mirror & Leech Help',
+        title='Bots Help',
         content=mirror_help_string_telegraph + leech_help_string_telegraph,
     )["path"]
 else:
     help = telegraph.create_page(
-        title='Helios-Mirror Help',
+        title='Bots Help',
         content=mirror_help_string_telegraph,
     )["path"]
 
@@ -222,7 +221,7 @@ else:
 if user_id == OWNER_ID:
     try:
         help = telegraph.create_page(
-        title='Helios-Mirror Help',
+        title='Bots Help',
         content=mirror_help_string_telegraph + leech_help_string_telegraph + sudo_help_string_telegraph,
     )["path"]
     except Exception as e:
