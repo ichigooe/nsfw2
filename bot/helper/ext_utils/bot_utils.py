@@ -152,7 +152,7 @@ def get_readable_message():
                 except:
                     pass
                 msg += f'\n<b>👨🏽‍💻 User:</b> ️<code>{download.message.from_user.first_name}</code>️(<code>{download.message.from_user.id}</code>)'
-                msg += f"\n<b>❌: </b><code>/{BotCommands.CancelMirror} {download.gid()}</code>"
+                msg += f"\n<b>❌: <b><code>/{BotCommands.CancelMirror} {download.gid()}</code>"
             elif download.status() == MirrorStatus.STATUS_SEEDING:
                 msg += f"\n<b>🗂 Size: </b>{download.size()}"
                 msg += f"\n<b>⚡️ Speed: </b>{get_readable_file_size(download.torrent_info().upspeed)}/s"
