@@ -136,7 +136,7 @@ def _qb_listener(listener, client, ext_hash, select, path):
             if tor_info.state == "metaDL":
                 stalled_time = time()
                 if QB_TIMEOUT is not None and time() - tor_info.added_on >= QB_TIMEOUT: #timeout while downloading metadata
-                    _onDownloadError("Dead Torrent!", client, ext_hash, listener)
+                    _onDownloadError("⚠️ Dead torrent, Use Seedr.cc or Live Torrent 👿!", client, ext_hash, listener)
                     break
             elif tor_info.state == "downloading":
                 stalled_time = time()
@@ -187,7 +187,7 @@ def _qb_listener(listener, client, ext_hash, select, path):
                     rechecked = True
 
                 elif QB_TIMEOUT is not None and time() - stalled_time >= QB_TIMEOUT: # timeout after downloading metadata
-                    _onDownloadError("Dead Torrent!", client, ext_hash, listener)
+                    _onDownloadError("⚠️ Dead torrent, Use Seedr.cc or Live Torrent 👿!", client, ext_hash, listener)
 
                     break
             elif tor_info.state == "missingFiles":
