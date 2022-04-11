@@ -560,7 +560,7 @@ def _mirror(bot, update, isZip=False, extract=False, isQbit=False, isLeech=False
                     LOGGER.error(str(e))
                     return sendMessage(tag + " " + error, bot, update)
         else:
-            msg = "Qb commands for torrents only. if you are trying to dowload torrent then report."
+            msg = "Qb commands for torrents only."
             return sendMessage(msg, bot, update)
 
     listener = MirrorListener(bot, update, isZip, extract, isQbit, isLeech, pswd, tag)
@@ -575,11 +575,11 @@ def _mirror(bot, update, isZip=False, extract=False, isQbit=False, isLeech=False
 
     elif is_mega_link(link):
         if BLOCK_MEGA_LINKS:
-            sendMessage("Mega links are blocked!", bot, update)
+            sendMessage("Mega Account Expired, If you can Share one dm any of the Admins!", bot, update)
             return
         link_type = get_mega_link_type(link)
         if link_type == "folder" and BLOCK_MEGA_FOLDER:
-            sendMessage("Mega folder are blocked!", bot, update)
+            sendMessage("Mega Account Expired, If you can Share one dm any of the Admins!", bot, update)
         else:
             if MEGAREST:
                 mega_dl = MegaDownloadeHelper(listener).add_rest_download
